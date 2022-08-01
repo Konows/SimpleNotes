@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SimpleNotes</class>
+ <widget class="QMainWindow" name="SimpleNotes">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>794</width>
+    <height>570</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SimpleNotes</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>3</number>
+    </property>
+    <property name="topMargin">
+     <number>3</number>
+    </property>
+    <property name="rightMargin">
+     <number>3</number>
+    </property>
+    <property name="bottomMargin">
+     <number>3</number>
+    </property>
+    <item>
+     <widget class="QMdiArea" name="mdiArea"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>794</width>
+     <height>52</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件(&amp;F)</string>
+    </property>
+    <addaction name="action_new"/>
+    <addaction name="action_open"/>
+    <addaction name="separator"/>
+    <addaction name="action_save"/>
+    <addaction name="action_saveas"/>
+    <addaction name="separator"/>
+    <addaction name="action_exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_E">
+    <property name="title">
+     <string>
+编辑(&amp;E)</string>
+    </property>
+    <widget class="QMenu" name="menu_S">
+     <property name="title">
+      <string>编码格式(&amp;S)</string>
+     </property>
+     <addaction name="action_utf"/>
+     <addaction name="action_gb"/>
+    </widget>
+    <addaction name="action_redo"/>
+    <addaction name="action_undo"/>
+    <addaction name="separator"/>
+    <addaction name="action_cut"/>
+    <addaction name="action_copy"/>
+    <addaction name="action_paste"/>
+    <addaction name="separator"/>
+    <addaction name="menu_S"/>
+   </widget>
+   <widget class="QMenu" name="menu_W">
+    <property name="title">
+     <string>窗口(&amp;W)</string>
+    </property>
+    <addaction name="action_close"/>
+    <addaction name="action_all"/>
+    <addaction name="separator"/>
+    <addaction name="action_tile"/>
+    <addaction name="action_cascade"/>
+    <addaction name="separator"/>
+    <addaction name="action_next"/>
+    <addaction name="action_prevous"/>
+   </widget>
+   <widget class="QMenu" name="menu_H">
+    <property name="title">
+     <string>帮助(&amp;H)</string>
+    </property>
+    <addaction name="action_about"/>
+    <addaction name="action_qt"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_E"/>
+   <addaction name="menu_W"/>
+   <addaction name="menu_H"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_new">
+   <property name="text">
+    <string>新建文件(&amp;N)</string>
+   </property>
+  </action>
+  <action name="action_open">
+   <property name="text">
+    <string>打开文件(&amp;O)</string>
+   </property>
+  </action>
+  <action name="action_save">
+   <property name="text">
+    <string>保存(&amp;S)</string>
+   </property>
+  </action>
+  <action name="action_saveas">
+   <property name="text">
+    <string>另存为(&amp;A)</string>
+   </property>
+  </action>
+  <action name="action_exit">
+   <property name="text">
+    <string>退出(&amp;E)</string>
+   </property>
+  </action>
+  <action name="action_redo">
+   <property name="text">
+    <string>撤销(&amp;R)</string>
+   </property>
+  </action>
+  <action name="action_undo">
+   <property name="text">
+    <string>恢复(&amp;U)</string>
+   </property>
+  </action>
+  <action name="action_cut">
+   <property name="text">
+    <string>剪切(&amp;T)</string>
+   </property>
+  </action>
+  <action name="action_copy">
+   <property name="text">
+    <string>复制(&amp;C)</string>
+   </property>
+  </action>
+  <action name="action_paste">
+   <property name="text">
+    <string>粘贴(&amp;P)</string>
+   </property>
+  </action>
+  <action name="action_utf">
+   <property name="text">
+    <string>UTF-8</string>
+   </property>
+  </action>
+  <action name="action_gb">
+   <property name="text">
+    <string>GB2312</string>
+   </property>
+  </action>
+  <action name="action_close">
+   <property name="text">
+    <string>关闭(&amp;O)</string>
+   </property>
+  </action>
+  <action name="action_all">
+   <property name="text">
+    <string>关闭所有(&amp;A)</string>
+   </property>
+  </action>
+  <action name="action_tile">
+   <property name="text">
+    <string>平铺(&amp;T)</string>
+   </property>
+  </action>
+  <action name="action_cascade">
+   <property name="text">
+    <string>层叠(&amp;C)</string>
+   </property>
+  </action>
+  <action name="action_next">
+   <property name="text">
+    <string>下一个(&amp;N)</string>
+   </property>
+  </action>
+  <action name="action_prevous">
+   <property name="text">
+    <string>上一个(&amp;P)</string>
+   </property>
+  </action>
+  <action name="action_about">
+   <property name="text">
+    <string>关于(&amp;A)</string>
+   </property>
+  </action>
+  <action name="action_qt">
+   <property name="text">
+    <string>关于QT(&amp;Q)</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
