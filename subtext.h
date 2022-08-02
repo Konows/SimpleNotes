@@ -17,6 +17,10 @@ public:
 
     void Openfile();
 
+    bool Savefile();
+
+    void Saveas();
+
     void setCodeName(const QString codename);
 
 private slots:

@@ -5,6 +5,7 @@
 subText::subText(QWidget *parent)
     : QTextEdit{parent}
 {
+    this->filepath.clear();
     file = new QFile(this);
 }
 
@@ -35,6 +36,9 @@ void subText::Openfile()
     }
     this->filepath = path;
 
+    //启用星号(未保存时标题栏星号提示)
+    //connect(this->document(),SIGNAL(contentsChanged()),this,SLOT(doProcessContentsChanged()));
+
 //    QStringList list = filepath.split("/");
 //    QString filename = list.at(list.length()-1);
     QFileInfo info(path);
@@ -63,6 +67,58 @@ void subText::setCodeName(const QString codename)
 {
     this->codeName = codename;
 }
+
+//保存文件
+bool subText::Savefile()
+{
+//    if(!this->isWindowModified())
+//    {
+//       return;
+//    }
+    if(this->filepath.isEmpty())
+    {
+        QString path = QFileDialog::getSaveFileName(this,"保存",".","Text(*.cpp *.h *.txt");
+        if(path.isEmpty())
+        {
+            return false;
+        }
+
+        this->filepath=path;
+    }
+    //对文件操作
+    file->setFileName(this->filepath);
+    bool ret = file->open(QIODevice::WriteOnly|QIODevice::Text);
+
+    if(!ret)
+    {
+        QMessageBox::warning(this,"失败","打开文件失败");
+        return false;
+    }
+    QTextStream stream(file);
+    stream.setCodec(this->codeName.toLocal8Bit().data());
+
+    stream << this->toPlainText();
+    stream.flush();
+
+    file->close();
+    qDebug()<<"tips";
+//    this->setWindowModified(false);
+    QMessageBox::information(this,"成功","保存文件成功");
+    return true;
+}
+
+//另存为
+void subText::Saveas()
+{
+    QString path = this->filepath;
+    this->filepath.clear();
+
+    bool ret = Savefile();
+    if(!ret)
+    {
+        this->filepath = path;
+    }
+}
 //end function
 
 //event
@@ -72,7 +128,6 @@ void subText::setCodeName(const QString codename)
 //启用星号
 void subText::doProcessContentsChanged()
 {
-    qDebug() << "test";
     this->setWindowModified(true);
 }
 

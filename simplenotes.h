@@ -4,6 +4,7 @@
 #include "subtext.h"
 
 #include <QMainWindow>
+#include <QMdiSubWindow>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class SimpleNotes; }
@@ -27,6 +28,12 @@ private slots:
     void doProcessNew(bool);
 
     void doProcessOpen(bool);
+
+    void doProcessSave(bool);
+
+    void doProcessSaveas(bool);
+
+    void doProcessExit(bool);
 
     void doProcessUTF(bool);
 
