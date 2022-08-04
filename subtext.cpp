@@ -121,8 +121,32 @@ void subText::Saveas()
 }
 //end function
 
-//event
-//end event
+//events
+//关闭事件
+void subText::closeEvent(QCloseEvent *e)
+{
+//    if(!this->isWindowModified())
+//    {
+//       return;
+//    }
+    QMessageBox::StandardButton ret = QMessageBox::information(this,"提示",
+                             "当前文件未保存",
+                             QMessageBox::Yes|QMessageBox::No|QMessageBox::Cancel);
+    if(ret == QMessageBox::Yes)
+    {
+        Savefile();
+        e->accept();
+    }
+    else if (ret == QMessageBox::No)
+    {
+        e->accept();
+    }
+    else
+    {
+        e->ignore();
+    }
+}
+//end events
 
 //slots
 //启用星号

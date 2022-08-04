@@ -6,6 +6,7 @@
 #include <QTextEdit>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QCloseEvent>
 
 class subText : public QTextEdit
 {
@@ -22,6 +23,9 @@ public:
     void Saveas();
 
     void setCodeName(const QString codename);
+
+protected:
+    void closeEvent(QCloseEvent *);
 
 private slots:
     void doProcessContentsChanged();
